@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+.button-register {
+  background-color: #0f7c90;
+  color: #fff;
+}
+
+.button-register:hover {
+  background-color: #094c59;
+  color: #fff;
+}
+
+.button-login {
+  color: #0f7c90;
+  background-color: transparent;
+  border: 1px solid #2896a9;
+}
+
+.button-login:hover {
+  color: #094c59;
+  background-color: transparent;
+  border: 1px solid #094c59;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.button-register-create {
+  color: #fff;
+  background-color: #ec5252;
+  border: 1px solid transparent;
+  font-size: 16px;
+  font-weight: 700;
+  height: 48px;
+  margin-bottom: 16px;
+  width: 100%;
+}

@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-5 text-center">
+      Inscríbete y comienza a aprender.
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5 mb-2">
+      <hr />
+    </div>
+  </div>
+  <form [formGroup]="formGroup">
+    <div class="row justify-content-center">
+      <div class="col-md-5 form-floating mb-3">
+        <input class="form-control" formControlName="name" id="floatingName" placeholder="Nombre(s)">
+        <label style="left: 15px;" for="floatingName">Nombre(s)</label>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-5 form-floating mb-3">
+        <input class="form-control" formControlName="lastName" id="floatingLastName" placeholder="Apellidos">
+        <label style="left: 15px;" for="floatingLastName">Apellidos</label>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-5 form-floating mb-3">
+        <input type="email" class="form-control" formControlName="email" id="floatingEmail" placeholder="name@example.com">
+        <label style="left: 15px;" for="floatingEmail">Email</label>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-5 form-floating mb-3">
+        <input class="form-control" formControlName="userName" id="floatingUserName" placeholder="Nombre de usuario" autocomplete="off">
+        <label style="left: 15px;" for="floatingUserName">Nombre de usuario</label>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-5 form-floating mb-3">
+        <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Contraseña"
+          autocomplete="new-password">
+        <label style="left: 15px;" for="floatingPassword">Contraseña</label>
+      </div>
+    </div>
+    <!-- <div class="row justify-content-center">
+      <div class="col-md-5 form-floating mb-3">
+        <input type="text" class="form-control" formControlName="phone" id="floatingPhone" placeholder="Teléfono">
+        <label style="left: 15px;" for="floatingPhone">Teléfono</label>
+      </div>
+    </div> -->
+    <div class="row justify-content-center">
+      <div class="col-md-2 mb-3 text-center">
+        <button type="button" class="btn btn-danger button-register-create"
+          (click)="registerUser(formGroup.value)">Regístrate</button>
+      </div>
+    </div>
+  </form>
+  <div class="row justify-content-center">
+    <div class="col-md-5 text-center" style="font-size: 10px;">
+      Al registrarte, aceptas nuestras <a routerLink="/using-conditions" target="_blank">Condiciones de use</a> y
+      <a routerLink="/privacy-policy" target="_blank">Política de privacdad</a>.
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <hr />
+    </div>
+  </div>
+  <div class="row justify-content-center mb-5">
+    <div class="col-md-5 text-center">
+      ¿Ya tienes una cuenta? Iniciar sesión
+    </div>
+  </div>
+</div>
