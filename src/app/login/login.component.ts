@@ -1,30 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../user/user';
 import { RegisterUserService } from '../service/register-user.service';
+import { User } from '../user/user';
 
 @Component({
-  selector: 'app-register-user',
-  templateUrl: './register-user.component.html',
-  styleUrls: ['./register-user.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class RegisterUserComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   public formGroup: FormGroup;
   public wip: boolean;
   public showAlert: boolean;
   public messageAlert: string;
 
+
   constructor(private formBuilder: FormBuilder,
-    private registerUserService: RegisterUserService,
-    private router: Router) {
+    private router: Router,
+    private registerUserService: RegisterUserService) {
     this.formGroup = undefined;
     this.wip = false;
     this.showAlert = false;
    }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.initializeFormBuilder();
   }
 
@@ -34,23 +35,18 @@ export class RegisterUserComponent implements OnInit {
    */
    public initializeFormBuilder(): void {
     this.formGroup = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
       username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      // phone: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required])
     });
   }
 
-  /**
-   * registe
-   */
-  public registerUser(user: User) {
+  public login(user: User) {
     this.wip = true;
     this.showAlert = false;
-    this.registerUserService.createUser(user).subscribe((userCreated: User) => {
-      this.router.navigateByUrl("/sending-email");
+    this.registerUserService.login(user).subscribe((token: string) => {
+      localStorage.setItem('token', `Bearer ${token}`);
+      this.registerUserService.loginEvent.emit(true);
+      this.router.navigateByUrl("/");
       this.wip = false;
     }, (error) => {
       this.messageAlert = error.error.error || undefined;

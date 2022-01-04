@@ -1,0 +1,54 @@
+<app-spinner [wip]="wip"></app-spinner>
+<div class="container">
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-5 text-center">
+      ¡Inicia sesión en tu cuenta de TodasOK!.
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5 mb-2">
+      <hr />
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <app-alert *ngIf="showAlert" type="error" [message]="messageAlert"></app-alert>
+    </div>
+  </div>
+  <form [formGroup]="formGroup">
+    <div class="row justify-content-center">
+      <div class="col-md-5 form-floating mb-3">
+        <input class="form-control" formControlName="username" id="floatingUsername" placeholder="Nombre de usuario o email" autocomplete="off">
+        <label style="left: 15px;" for="floatingUsername">Nombre de usuario o email</label>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-5 form-floating mb-3">
+        <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Contraseña"
+          autocomplete="new-password">
+        <label style="left: 15px;" for="floatingPassword">Contraseña</label>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-2 mb-3 text-center">
+        <button type="button" class="btn btn-danger button-register-create"
+          (click)="login(formGroup.value)" [disabled]="!formGroup.valid">Iniciar sesión</button>
+      </div>
+    </div>
+  </form>
+  <div class="row justify-content-center">
+    <div class="col-md-5 text-center">
+      o <a routerLink="/forgot-password">¿Has olvidado la contraseña?</a>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <hr />
+    </div>
+  </div>
+  <div class="row justify-content-center mb-5">
+    <div class="col-md-5 text-center">
+      ¿No tienes una cuenta? <a routerLink="/register">Regístrate</a>
+    </div>
+  </div>
+</div>

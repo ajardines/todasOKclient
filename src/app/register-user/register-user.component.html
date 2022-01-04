@@ -1,3 +1,4 @@
+<app-spinner [wip]="wip"></app-spinner>
 <div class="container">
   <div class="row justify-content-center mt-4">
     <div class="col-md-5 text-center">
@@ -7,6 +8,11 @@
   <div class="row justify-content-center">
     <div class="col-md-5 mb-2">
       <hr />
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <app-alert *ngIf="showAlert" type="error" [message]="messageAlert"></app-alert>
     </div>
   </div>
   <form [formGroup]="formGroup">
@@ -30,8 +36,8 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-md-5 form-floating mb-3">
-        <input class="form-control" formControlName="userName" id="floatingUserName" placeholder="Nombre de usuario" autocomplete="off">
-        <label style="left: 15px;" for="floatingUserName">Nombre de usuario</label>
+        <input class="form-control" formControlName="username" id="floatingUsername" placeholder="Nombre de usuario" autocomplete="off">
+        <label style="left: 15px;" for="floatingUsername">Nombre de usuario</label>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -50,7 +56,7 @@
     <div class="row justify-content-center">
       <div class="col-md-2 mb-3 text-center">
         <button type="button" class="btn btn-danger button-register-create"
-          (click)="registerUser(formGroup.value)">Regístrate</button>
+          (click)="registerUser(formGroup.value)" [disabled]="!formGroup.valid">Regístrate</button>
       </div>
     </div>
   </form>
@@ -67,7 +73,7 @@
   </div>
   <div class="row justify-content-center mb-5">
     <div class="col-md-5 text-center">
-      ¿Ya tienes una cuenta? Iniciar sesión
+      ¿Ya tienes una cuenta? <a routerLink="/login">Iniciar sesión</a>
     </div>
   </div>
 </div>

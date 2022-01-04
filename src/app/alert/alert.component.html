@@ -1,0 +1,12 @@
+<div class="text-center" *ngIf="type=='error'">
+  <p style="color:red;">{{message}}</p>
+</div>
+<div class="text-center" *ngIf="type=='success'">
+  <p style="color:#3c763d;">{{message}}</p>
+</div>
+<div class="text-center" *ngIf="type=='info'">
+  <p style="color:#31708f;">{{message}}</p>
+</div>
+<div class="text-center" *ngIf="type=='warning'">
+  <p style="color:#8a6d3b;">{{message}}</p>
+</div>

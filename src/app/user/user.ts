@@ -19,6 +19,6 @@ export class User {
     this.email = null;
     this.phone = null;
     this.rfc = null;
-    this.role = null
+    this.role = null;
   }
 }

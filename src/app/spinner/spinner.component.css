@@ -1,0 +1,16 @@
+.spanner{
+  position: absolute;
+  left: 48%;
+  top: 48%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2a2a2a55;
+  z-index: 1000;
+  cursor: progress;
+}
